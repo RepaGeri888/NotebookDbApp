@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="NotebookDbApp.WpfClient.Views.GpuWindowView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NotebookDbApp.WpfClient.Views"
+        xmlns:vms="clr-namespace:NotebookDbApp.WpfClient.ViewModels"
+        mc:Ignorable="d">
+    <UserControl.DataContext>
+        <vms:GpuWindowViewModel/>
+    </UserControl.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox x:Name="lNotebooks" ItemsSource="{Binding Gpus}" SelectedItem="{Binding SelectedGpu}" Grid.RowSpan="2" HorizontalContentAlignment="Stretch">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border Background="LightSlateGray" BorderBrush="Black" BorderThickness="1">
+                        <Label Content="{Binding Name}" Foreground="White" FontSize="14"/>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox x:Name="lBox" Grid.Column="1" Padding="10">
+            <Label Content="{Binding SelectedGpu.Id}" ContentStringFormat="Id: {0}"/>
+            <Label Content="{Binding SelectedGpu.Name}" ContentStringFormat="Name: {0}"/>
+            <Label Content="{Binding SelectedGpu.MemorySize}" ContentStringFormat="Memory size: {0}"/>
+            <Label Content="{Binding SelectedGpu.BusWidth}" ContentStringFormat="Bus width: {0}"/>
+        </ListBox>
+        <StackPanel Grid.Column="1" Grid.Row="1">
+
+            <Button Content="Create GPU" Command="{Binding CreateGpuCommand}" Margin="10" Padding="10"/>
+            <Button Content="Delete GPU" Command="{Binding DeleteGpuCommand}" Margin="10" Padding="10"/>
+            <Button Content="Update GPU" Command="{Binding UpdateGpuCommand}" Margin="10" Padding="10"/>
+            <Label Content="{Binding ErrorMessage}" FontSize="18" Foreground="Red" HorizontalContentAlignment="Center" />
+        </StackPanel>
+    </Grid>
+</UserControl>

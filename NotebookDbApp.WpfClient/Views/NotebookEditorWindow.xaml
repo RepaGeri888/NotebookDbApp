@@ -1,0 +1,35 @@
+﻿<Window x:Class="NotebookDbApp.WpfClient.Views.NotebookEditorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NotebookDbApp.WpfClient.Views"
+        xmlns:vms="clr-namespace:NotebookDbApp.WpfClient.ViewModels"
+        mc:Ignorable="d"
+        Title="NotebookEditorWindow" Height="650" Width="600">
+    <Window.DataContext>
+        <vms:NotebookEditorWindowViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <StackPanel x:Name="stack">
+            <Label Content="Brand ID" Padding="10" Background="DarkOrange"/>
+            <TextBox Text="{Binding ActualNotebook.BrandId, UpdateSourceTrigger=Explicit}"  Padding="10"/>
+            <Label Content="Model" Padding="10" Background="DarkOrange"/>
+            <TextBox Text="{Binding ActualNotebook.Model, UpdateSourceTrigger=Explicit}" Padding="10"/>
+            <Label Content="CPU ID" Padding="10" Background="DarkOrange"/>
+            <TextBox Text="{Binding ActualNotebook.CpuId, UpdateSourceTrigger=Explicit}" Padding="10"/>
+            <Label Content="GPU ID" Padding="10" Background="DarkOrange"/>
+            <TextBox Text="{Binding ActualNotebook.GpuId, UpdateSourceTrigger=Explicit}" Padding="10"/>
+            <Label Content="RAM" Padding="10" Background="DarkOrange"/>
+            <TextBox Text="{Binding ActualNotebook.Ram, UpdateSourceTrigger=Explicit}" Padding="10"/>
+            <Label Content="Storage" Padding="10" Background="DarkOrange"/>
+            <TextBox Text="{Binding ActualNotebook.Storage, UpdateSourceTrigger=Explicit}" Padding="10"/>
+            <Label Content="Price" Padding="10" Background="DarkOrange"/>
+            <TextBox Text="{Binding ActualNotebook.Price, UpdateSourceTrigger=Explicit}" Padding="10"/>
+            <StackPanel x:Name="stButtons" Orientation="Horizontal" Margin="10">
+                <Button Content="Save" Padding="20,10,20,10" Margin="5" Click="Button_Click" IsDefault="True"/>
+                <Button Content="Cancel" Padding="20,10,20,10" Margin="5" Click="Button_Click_1" IsCancel="True"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

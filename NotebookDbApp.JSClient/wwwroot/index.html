@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Notebook UI</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h1 id="toptitle">Notebook Catalog</h1>
+
+    <div id="notebookformdiv">
+        <label>Brand ID</label>
+        <input type="number" id="notebookbrandid" />
+        <label>Model</label>
+        <input type="text" id="notebookmodel" />
+        <label>CPU ID</label>
+        <input type="number" id="notebookcpuid" />
+        <label>GPU ID</label>
+        <input type="number" id="notebookgpuid" />
+        <label>RAM</label>
+        <input type="number" id="notebookram" />
+        <label>Storage</label>
+        <input type="number" id="notebookstorage" />
+        <label>Price</label>
+        <input type="number" id="notebookprice" />
+        <button type="button" onclick="createNotebook()">Add Notebook</button>
+    </div>
+
+    <div id="notebookupdateformdiv" class="update">
+        <label>Brand ID</label>
+        <input type="number" id="notebookbrandidtoupdate" />
+        <label>Model</label>
+        <input type="text" id="notebookmodeltoupdate" />
+        <label>CPU ID</label>
+        <input type="number" id="notebookcpuidtoupdate" />
+        <label>GPU ID</label>
+        <input type="number" id="notebookgpuidtoupdate" />
+        <label>RAM</label>
+        <input type="number" id="notebookramtoupdate" />
+        <label>Storage</label>
+        <input type="number" id="notebookstoragetoupdate" />
+        <label>Price</label>
+        <input type="number" id="notebookpricetoupdate" />
+        <button type="button" onclick="updateNotebook()">Update Notebook</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Brand</th>
+                <th>Model</th>
+                <th>CPU</th>
+                <th>GPU</th>
+                <th>RAM</th>
+                <th>Storage</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="notebookresultarea">
+        </tbody>
+    </table>
+
+
+    <h1>Brand Catalog</h1>
+
+    <div id="brandformdiv">
+        <label>Name</label>
+        <input type="text" id="brandname" />
+        <button type="button" onclick="createBrand()">Add Brand</button>
+    </div>
+
+    <div id="brandupdateformdiv" class="update">
+        <label>Name</label>
+        <input type="text" id="brandnametoupdate" />
+        <button type="button" onclick="updateBrand()">Update Brand</button>
+    </div>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="brandresultarea">
+        </tbody>
+    </table>
+
+
+    <h1>Cpu Catalog</h1>
+
+    <div id="cpuformdiv">
+        <label>Name</label>
+        <input type="text" id="cpuname" />
+        <label>Cores</label>
+        <input type="number" id="cpucores" />
+        <label>Threads</label>
+        <input type="number" id="cputhreads" />
+        <label>Clock speed</label>
+        <input type="number" id="cpuclockspeed" />
+        <button type="button" onclick="createCpu()">Add CPU</button>
+    </div>
+
+    <div id="cpuupdateformdiv" class="update">
+        <label>Name</label>
+        <input type="text" id="cpunametoupdate" />
+        <label>Cores</label>
+        <input type="number" id="cpucorestoupdate" />
+        <label>Threads</label>
+        <input type="number" id="cputhreadstoupdate" />
+        <label>Clock speed</label>
+        <input type="number" id="cpuclockspeedtoupdate" />
+        <button type="button" onclick="updateCpu()">Update CPU</button>
+    </div>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Cores</th>
+                <th>Threads</th>
+                <th>Clock speed</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="cpuresultarea">
+        </tbody>
+    </table>
+
+
+    <h1>Gpu Catalog</h1>
+
+    <div id="gpuformdiv">
+        <label>Name</label>
+        <input type="text" id="gpuname" />
+        <label>Memory size</label>
+        <input type="number" id="gpumemorysize" />
+        <label>Bus width</label>
+        <input type="number" id="gpubuswidth" />
+        <button type="button" onclick="createGpu()">Add GPU</button>
+    </div>
+
+    <div id="gpuupdateformdiv" class="update">
+        <label>Name</label>
+        <input type="text" id="gpunametoupdate" />
+        <label>Memory size</label>
+        <input type="number" id="gpumemorysizetoupdate" />
+        <label>Bus width</label>
+        <input type="number" id="gpubuswidthtoupdate" />
+        <button type="button" onclick="updateGpu()">Update GPU</button>
+    </div>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Memory size</th>
+                <th>Bus width</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="gpuresultarea">
+        </tbody>
+    </table>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

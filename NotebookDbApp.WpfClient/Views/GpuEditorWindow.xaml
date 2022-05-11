@@ -1,0 +1,27 @@
+﻿<Window x:Class="NotebookDbApp.WpfClient.Views.GpuEditorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NotebookDbApp.WpfClient.Views"
+        xmlns:vms="clr-namespace:NotebookDbApp.WpfClient.ViewModels"
+        mc:Ignorable="d"
+        Title="GpuEditorWindow" Height="350" Width="600">
+    <Window.DataContext>
+        <vms:GpuEditorWindowViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <StackPanel x:Name="stack">
+            <Label Content="Name" Padding="10" Background="DarkOrange"/>
+            <TextBox Text="{Binding ActualGpu.Name, UpdateSourceTrigger=Explicit}"  Padding="10"/>
+            <Label Content="Memory size" Padding="10" Background="DarkOrange"/>
+            <TextBox Text="{Binding ActualGpu.MemorySize, UpdateSourceTrigger=Explicit}" Padding="10"/>
+            <Label Content="Bus width" Padding="10" Background="DarkOrange"/>
+            <TextBox Text="{Binding ActualGpu.BusWidth, UpdateSourceTrigger=Explicit}" Padding="10"/>
+            <StackPanel x:Name="stButtons" Orientation="Horizontal" Margin="10">
+                <Button Content="Save" Padding="20,10,20,10" Margin="5" Click="Button_Click" IsDefault="True"/>
+                <Button Content="Cancel" Padding="20,10,20,10" Margin="5" Click="Button_Click_1" IsCancel="True"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

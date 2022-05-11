@@ -1,0 +1,22 @@
+﻿<Application x:Class="NotebookDbApp.WpfClient.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:NotebookDbApp.WpfClient"
+             xmlns:vs="clr-namespace:NotebookDbApp.WpfClient.Views"
+             xmlns:vms="clr-namespace:NotebookDbApp.WpfClient.ViewModels"
+             StartupUri="Views/MainWindowView.xaml">
+    <Application.Resources>
+        <DataTemplate DataType="{x:Type vms:NotebookWindowViewModel}">
+            <vs:NotebookWindowView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vms:GpuWindowViewModel}">
+            <vs:GpuWindowView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vms:CpuWindowViewModel}">
+            <vs:CpuWindowView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vms:BrandWindowViewModel}">
+            <vs:BrandWindowView/>
+        </DataTemplate>
+    </Application.Resources>
+</Application>

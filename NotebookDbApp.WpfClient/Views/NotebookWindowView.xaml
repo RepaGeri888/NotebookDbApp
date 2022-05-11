@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="NotebookDbApp.WpfClient.Views.NotebookWindowView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NotebookDbApp.WpfClient.Views"
+        xmlns:vms="clr-namespace:NotebookDbApp.WpfClient.ViewModels"
+        mc:Ignorable="d">
+    <UserControl.DataContext>
+        <vms:NotebookWindowViewModel/>
+    </UserControl.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox x:Name="lNotebooks" ItemsSource="{Binding Notebooks}" SelectedItem="{Binding SelectedNotebook}" Grid.RowSpan="2" HorizontalContentAlignment="Stretch">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border x:Name="border" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Stretch" Background="SlateGray">
+                        <StackPanel x:Name="stack1" >
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="{Binding Brand.Name}" Foreground="Wheat" FontSize="14"/>
+                                <Label Content="{Binding Model}" Foreground="Beige" FontWeight="DemiBold" FontSize="14"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" >
+                                <Label Content="{Binding Cpu.Name}" Foreground="AntiqueWhite" FontSize="14"/>
+                                <Label Content="{Binding Gpu.Name}" Foreground="AntiqueWhite" FontSize="14"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox x:Name="lBox" Grid.Column="1" Padding="10">
+            <Label Content="{Binding SelectedNotebook.Id}" ContentStringFormat="Id: {0}"/>
+            <Label Content="{Binding SelectedNotebook.Brand.Name}" ContentStringFormat="Brand: {0}"/>
+            <Label Content="{Binding SelectedNotebook.Model}" ContentStringFormat="Model: {0}"/>
+            <Label Content="{Binding SelectedNotebook.Cpu.Name}" ContentStringFormat="CPU: {0}"/>
+            <Label Content="{Binding SelectedNotebook.Gpu.Name}" ContentStringFormat="GPU: {0}"/>
+            <Label Content="{Binding SelectedNotebook.Ram}" ContentStringFormat="Ram: {0}GB"/>
+            <Label Content="{Binding SelectedNotebook.Storage}" ContentStringFormat="Storage: {0}GB"/>
+            <Label Content="{Binding SelectedNotebook.Price}" ContentStringFormat="Price: {0}$"/>
+        </ListBox>
+        <StackPanel Grid.Column="1" Grid.Row="1">
+
+            <Button Content="Create Notebook" Command="{Binding CreateNotebookCommand}" Margin="10" Padding="10"/>
+            <Button Content="Delete Notebook" Command="{Binding DeleteNotebookCommand}" Margin="10" Padding="10"/>
+            <Button Content="Update Notebook" Command="{Binding UpdateNotebookCommand}" Margin="10" Padding="10"/>
+            <Label Content="{Binding ErrorMessage}" FontSize="18" Foreground="Red" HorizontalContentAlignment="Center" />
+        </StackPanel>
+    </Grid>
+</UserControl>

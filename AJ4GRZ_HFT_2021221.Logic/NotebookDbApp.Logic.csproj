@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AJ4GRZ_HFT_2021221.Models\NotebookDbApp.Models.csproj" />
+    <ProjectReference Include="..\AJ4GRZ_HFT_2021221.Repository\NotebookDbApp.Repository.csproj" />
+  </ItemGroup>
+
+</Project>
